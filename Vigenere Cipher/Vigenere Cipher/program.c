@@ -99,6 +99,9 @@ int encrypt_cipher() {
 	return 0;
 }
 
+/*
+*	Terminates the program
+*/
 void terminate_program() {
 	exit(0);
 }
