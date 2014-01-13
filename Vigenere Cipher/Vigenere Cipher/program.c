@@ -15,7 +15,6 @@ enum Options {
 *	Executes the main body of our program
 */
 int execute_program() {
-	//options menu_option;
 	int option = 0;
 
 	program_title();
@@ -73,6 +72,9 @@ void program_instructions() {
 	printf("%s", instructions);
 }
 
+/*
+*	Encrypts an inputted cipher against an alphabet text file
+*/
 int encrypt_cipher() {
 	exit(0);
 
