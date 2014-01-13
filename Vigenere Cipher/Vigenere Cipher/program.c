@@ -88,19 +88,31 @@ int encrypt_cipher() {
 	const char *cipher_title = "\n\nEncrypt Cipher \n\n";
 	char *alphaFileDestination = "alphabet.txt";
 	FILE *f_alphabet = fopen(alphaFileDestination, "r");
+	char userInput [MAX_LETTERS]; 
 
 	printf("%s", cipher_title);
-	
-	// read and store the alphabet text file
-	for(i = 0; i < NO_ALPHABETS; i++) {
-		for(j = 0; j < MAX_LETTERS; j++) {
-			alphabet[i][j] = fgetc(f_alphabet);
-			printf("%c", alphabet[i][j]);
+
+	if(f_alphabet != NULL) {
+		// read and store the alphabet text file
+		for(i = 0; i < NO_ALPHABETS; i++) {
+			for(j = 0; j < MAX_LETTERS; j++) {
+				alphabet[i][j] = fgetc(f_alphabet);
+				printf("%c", alphabet[i][j]);
+			}
 		}
 	}
-
+	else {
+		perror("Unable to open file");
+	}
+	
 	fclose(f_alphabet);
 
+	// retrieve user input
+	printf("%s", "\n\nEnter in word to be encrypted: ");
+	scanf("%s", &userInput);
+		
+	printf("%s", "\n");
+		
 	return 0;
 }
 
