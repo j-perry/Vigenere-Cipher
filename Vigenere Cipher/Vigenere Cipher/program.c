@@ -5,7 +5,7 @@
 #include "program.h"
 
 #define NO_ALPHABETS 4
-#define MAX_LETTERS 25
+#define MAX_LETTERS 27
 
 const char *NEW_LINE = "\n";
 enum Options { 
@@ -81,17 +81,16 @@ void program_instructions() {
 */
 int encrypt_cipher() {
 	int i, j;
-	int alphabet [NO_ALPHABETS][MAX_LETTERS];
+	char letter;
+	char alphabet [NO_ALPHABETS][MAX_LETTERS];
 	const char *cipher_title = "Encrypt Cipher \n\n";
-	FILE *alphabetFile = fopen("alphabet.txt", "%r");
-
-	printf("%s", cipher_title);
-
+	FILE *alphabetFile = fopen("alphabet.txt", "r");
+	
 	// read and store the alphabet text file
-	for(i = 0; i < 4; i++) {
-		for(j = 0; j < 25; j++) {
-			//alphabet[i][j] = fgetc(alphabetFile);
-			//printf("%d", alphabet[i][j]);
+	for(i = 0; i < NO_ALPHABETS; i++) {
+		for(j = 0; j < MAX_LETTERS; j++) {
+			alphabet[i][j] = fgetc(alphabetFile);
+			printf("%c", alphabet[i][j]);
 		}
 	}
 
