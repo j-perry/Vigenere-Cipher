@@ -4,6 +4,9 @@
 
 #include "program.h"
 
+#define NO_ALPHABETS 4
+#define MAX_LETTERS 25
+
 const char *NEW_LINE = "\n";
 enum Options { 
 	ENCRYPT = 1, 
@@ -29,6 +32,7 @@ int execute_program() {
 		case DECRYPT:
 			break;
 		case CLOSE_PROGRAM:	
+			terminate_program();
 			break;
 		default:
 			break;
@@ -76,7 +80,26 @@ void program_instructions() {
 *	Encrypts an inputted cipher against an alphabet text file
 */
 int encrypt_cipher() {
-	exit(0);
+	int i, j;
+	int alphabet [NO_ALPHABETS][MAX_LETTERS];
+	const char *cipher_title = "Encrypt Cipher \n\n";
+	FILE *alphabetFile = fopen("alphabet.txt", "%r");
+
+	printf("%s", cipher_title);
+
+	// read and store the alphabet text file
+	for(i = 0; i < 4; i++) {
+		for(j = 0; j < 25; j++) {
+			//alphabet[i][j] = fgetc(alphabetFile);
+			//printf("%d", alphabet[i][j]);
+		}
+	}
+
+	fclose(alphabetFile);
 
 	return 0;
+}
+
+void terminate_program() {
+	exit(0);
 }

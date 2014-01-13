@@ -27,5 +27,5 @@
 
 #ifndef TERMINATE_PROGRAM
 #define TERMINATE_PROGRAM
-	int terminate_program();
+	void terminate_program();
 #endif;
