@@ -14,3 +14,8 @@
 #define PROGRAM_INSTRUCTIONS
 	void program_instructions();
 #endif;
+
+#ifndef ENCRYPT_CIPHER
+#define ENCRYPT_CIPHER
+	int encrypt_cipher();
+#endif;

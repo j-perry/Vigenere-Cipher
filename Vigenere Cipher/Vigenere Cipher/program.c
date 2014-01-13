@@ -5,25 +5,27 @@
 #include "program.h"
 
 const char *NEW_LINE = "\n";
-typedef enum Options { 
-	                   ENCRYPT = 1, 
-					   DECRYPT = 2, 
-					   CLOSE_PROGRAM = 3
-					 };
+enum Options { 
+	ENCRYPT = 1, 
+	DECRYPT = 2, 
+	CLOSE_PROGRAM = 3
+} options;
 
 /*
 *	Executes the main body of our program
 */
 int execute_program() {
+	//options menu_option;
+	int option = 0;
+
 	program_title();
 	program_instructions();
 
-	/*
-	Options menu_option;
-	int option = 0;
-
-	switch(menu_option) {
+	scanf("%d", &option);
+	
+	switch(option) {
 		case ENCRYPT:
+			encrypt_cipher();
 			break;
 		case DECRYPT:
 			break;
@@ -32,7 +34,6 @@ int execute_program() {
 		default:
 			break;
 	}
-	*/
 
 	return 0;
 }
@@ -51,7 +52,7 @@ void program_title() {
 *	Program instructions
 */
 void program_instructions() {
-	char instructions [115] = "";
+	char instructions [150] = "";
 
 	strcat(instructions, "------------------");	
 	strcat((char *) instructions, NEW_LINE);
@@ -66,6 +67,14 @@ void program_instructions() {
 	strcat((char *) instructions, NEW_LINE);
 	strcat((char *) instructions, "Option 3: Close Program");
 	strcat((char *) instructions, NEW_LINE);
+	strcat((char *) instructions, NEW_LINE);
+	strcat((char *) instructions, "Enter your choice: ");
 
 	printf("%s", instructions);
+}
+
+int encrypt_cipher() {
+	exit(0);
+
+	return 0;
 }
