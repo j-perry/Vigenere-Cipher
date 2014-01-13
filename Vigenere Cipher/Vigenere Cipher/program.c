@@ -30,6 +30,7 @@ int execute_program() {
 			encrypt_cipher();
 			break;
 		case DECRYPT:
+			decrypt_cipher();
 			break;
 		case CLOSE_PROGRAM:	
 			terminate_program();
@@ -99,6 +100,13 @@ int encrypt_cipher() {
 
 	fclose(f_alphabet);
 
+	return 0;
+}
+
+/*
+*	Decrypts the cipher text
+*/
+int decrypt_cipher() {
 	return 0;
 }
 
