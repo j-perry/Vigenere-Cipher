@@ -19,3 +19,13 @@
 #define ENCRYPT_CIPHER
 	int encrypt_cipher();
 #endif;
+
+#ifndef DECRYPT_CIPHER
+#define DECRYPT_CIPHER
+	int decrypt_cipher();
+#endif;
+
+#ifndef TERMINATE_PROGRAM
+#define TERMINATE_PROGRAM
+	int terminate_program();
+#endif;
