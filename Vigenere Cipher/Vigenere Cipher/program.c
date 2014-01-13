@@ -8,6 +8,7 @@
 #define MAX_LETTERS 27
 
 const char *NEW_LINE = "\n";
+
 enum Options { 
 	ENCRYPT = 1, 
 	DECRYPT = 2, 
@@ -21,7 +22,7 @@ int execute_program() {
 	int option = 0;
 
 	program_title();
-	program_instructions();
+	program_menu();
 
 	scanf("%d", &option);
 	
@@ -53,9 +54,9 @@ void program_title() {
 }
 
 /*
-*	Program instructions
+*	Program menu
 */
-void program_instructions() {
+void program_menu() {
 	char instructions [150] = "";
 
 	strcat(instructions, "------------------");	

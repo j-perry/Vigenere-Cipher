@@ -12,7 +12,7 @@
 	
 #ifndef PROGRAM_INSTRUCTIONS
 #define PROGRAM_INSTRUCTIONS
-	void program_instructions();
+	void program_menu();
 #endif;
 
 #ifndef ENCRYPT_CIPHER
