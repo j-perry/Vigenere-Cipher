@@ -10,3 +10,7 @@
 	void program_title();
 #endif;
 	
+#ifndef PROGRAM_INSTRUCTIONS
+#define PROGRAM_INSTRUCTIONS
+	void program_instructions();
+#endif;
