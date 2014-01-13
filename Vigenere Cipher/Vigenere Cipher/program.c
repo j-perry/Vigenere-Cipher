@@ -83,18 +83,21 @@ int encrypt_cipher() {
 	int i, j;
 	char letter;
 	char alphabet [NO_ALPHABETS][MAX_LETTERS];
-	const char *cipher_title = "Encrypt Cipher \n\n";
-	FILE *alphabetFile = fopen("alphabet.txt", "r");
+	const char *cipher_title = "\n\nEncrypt Cipher \n\n";
+	char *alphaFileDestination = "alphabet.txt";
+	FILE *f_alphabet = fopen(alphaFileDestination, "r");
+
+	printf("%s", cipher_title);
 	
 	// read and store the alphabet text file
 	for(i = 0; i < NO_ALPHABETS; i++) {
 		for(j = 0; j < MAX_LETTERS; j++) {
-			alphabet[i][j] = fgetc(alphabetFile);
+			alphabet[i][j] = fgetc(f_alphabet);
 			printf("%c", alphabet[i][j]);
 		}
 	}
 
-	fclose(alphabetFile);
+	fclose(f_alphabet);
 
 	return 0;
 }
