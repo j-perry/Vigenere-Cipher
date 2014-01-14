@@ -15,6 +15,11 @@
 	void program_menu();
 #endif;
 
+#ifndef PROGRAM_MENU_CHOICE
+#define PROGRAM_MENU_CHOICE
+	void program_menu_choice(int);
+#endif;
+
 #ifndef ENCRYPT_CIPHER
 #define ENCRYPT_CIPHER
 	int encrypt_cipher();

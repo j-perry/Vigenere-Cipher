@@ -26,21 +26,33 @@ int execute_program() {
 
 	scanf("%d", &option);
 	
-	switch(option) {
-		case ENCRYPT:
-			encrypt_cipher();
-			break;
-		case DECRYPT:
-			decrypt_cipher();
-			break;
-		case CLOSE_PROGRAM:	
-			terminate_program();
-			break;
-		default:
-			break;
-	}
+	program_menu_choice(option);
 
 	return 0;
+}
+
+/*
+*	Parses the user's menu choice
+*/
+void program_menu_choice(int option) {
+	if(option == ENCRYPT) {
+		encrypt_cipher();
+	}
+	else if(option == DECRYPT) {
+		decrypt_cipher();
+	}
+	else if(option == CLOSE_PROGRAM) {
+		terminate_program();
+	}
+	else {
+		printf("%s", "\n");
+		printf("%s", "Invalid. Enter a valid option:");
+		printf("%s", "\n\n");
+
+		program_menu();
+		scanf("%d", &option);
+		program_menu_choice(option);
+	}		
 }
 
 /*
@@ -82,13 +94,14 @@ void program_menu() {
 *	Encrypts an inputted cipher against an alphabet text file
 */
 int encrypt_cipher() {
-	int i, j;
+	int i, j, k;
 	char letter;
 	char alphabet [NO_ALPHABETS][MAX_LETTERS];
 	const char *cipher_title = "\n\nEncrypt Cipher \n\n";
 	char *alphaFileDestination = "alphabet.txt";
 	FILE *f_alphabet = fopen(alphaFileDestination, "r");
 	char userInput [MAX_LETTERS]; 
+	char encryptedInput [MAX_LETTERS];
 
 	printf("%s", cipher_title);
 
@@ -109,9 +122,63 @@ int encrypt_cipher() {
 
 	// retrieve user input
 	printf("%s", "\n\nEnter in word to be encrypted: ");
-	scanf("%s", &userInput);
+	scanf("%s", userInput);
 		
-	printf("%s", "\n");
+	printf("%s", "You entered: ");
+	printf("%s", userInput);
+	printf("%s", "\n\n");
+
+	i = 0;
+	j = 0; // alphabet no.
+	k = 0; // alphabet letters
+	
+	// encrypt the user input
+	//while(i != strlen(userInput)) {
+		letter = userInput[i];	
+		printf("%s", "The first letter is: ");
+		printf("%c", letter);
+
+		// reset the counters
+		/*
+		if(j == NO_ALPHABETS) {
+			j = 0;
+		}
+		else if(k == MAX_LETTERS) {
+			k = 0;
+		}
+		*/
+
+		switch(letter) {
+			case 'h':
+				encryptedInput[i] = alphabet[j][k];
+				i++;
+				j++;
+				k++;
+				break;
+			case 'e':
+				encryptedInput[i] = alphabet[j][k];
+				i++;
+				j++;
+				k++;
+				break;
+			case 'l':
+				encryptedInput[i] = alphabet[j][k];
+				i++;
+				j++;
+				k++;
+				break;
+			case 'o':
+				encryptedInput[i] = alphabet[j][k];
+				i++;
+				j++;
+				k++;
+				break;			
+			default: 
+				break;
+		}
+
+		printf("%c", encryptedInput[i]);
+	//}
 		
 	return 0;
 }
