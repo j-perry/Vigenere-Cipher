@@ -133,52 +133,41 @@ int encrypt_cipher() {
 	k = 0; // alphabet letters
 	
 	// encrypt the user input
-	//while(i != strlen(userInput)) {
+	while(i != strlen(userInput)) {
 		letter = userInput[i];	
-		printf("%s", "The first letter is: ");
-		printf("%c", letter);
 
 		// reset the counters
-		/*
 		if(j == NO_ALPHABETS) {
 			j = 0;
 		}
 		else if(k == MAX_LETTERS) {
 			k = 0;
 		}
-		*/
 
 		switch(letter) {
 			case 'h':
 				encryptedInput[i] = alphabet[j][k];
-				i++;
-				j++;
-				k++;
 				break;
 			case 'e':
 				encryptedInput[i] = alphabet[j][k];
-				i++;
-				j++;
-				k++;
 				break;
 			case 'l':
 				encryptedInput[i] = alphabet[j][k];
-				i++;
-				j++;
-				k++;
 				break;
 			case 'o':
 				encryptedInput[i] = alphabet[j][k];
-				i++;
-				j++;
-				k++;
 				break;			
 			default: 
 				break;
 		}
 
 		printf("%c", encryptedInput[i]);
-	//}
+		i++;
+		j++;
+		k++;
+	}
+
+	printf("%s", "\n\n");
 		
 	return 0;
 }
