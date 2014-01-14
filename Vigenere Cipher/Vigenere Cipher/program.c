@@ -145,24 +145,91 @@ int encrypt_cipher() {
 		}
 
 		switch(letter) {
-			case 'h':
+			case 'a':
 				encryptedInput[i] = alphabet[j][k];
 				break;
+			case 'b':
+				encryptedInput[i] = alphabet[j][k];
+				break;
+			case 'c':
+				encryptedInput[i] = alphabet[j][k];
+				break;
+			case 'd':
+				encryptedInput[i] = alphabet[j][k];
+				break;		
 			case 'e':
 				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 'f':
+				encryptedInput[i] = alphabet[j][k];
 				break;
+			case 'g':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 'h':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 'i':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 'j':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 'k':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
 			case 'l':
 				encryptedInput[i] = alphabet[j][k];
-				break;
+				break;	
+			case 'm':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 'n':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
 			case 'o':
 				encryptedInput[i] = alphabet[j][k];
-				break;			
+				break;	
+			case 'p':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 'q':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 'r':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 's':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 't':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 'u':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 'v':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 'w':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 'x':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
+			case 'y':
+				encryptedInput[i] = alphabet[j][k];
+				break;
+			case 'z':
+				encryptedInput[i] = alphabet[j][k];
+				break;	
 			default: 
 				break;
 		}
 
+		// output encrypted contents
 		printf("%c", encryptedInput[i]);
-		i++;
+		i++; 
 		j++;
 		k++;
 	}
