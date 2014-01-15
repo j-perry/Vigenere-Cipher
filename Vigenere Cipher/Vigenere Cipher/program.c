@@ -99,9 +99,12 @@ int encrypt_cipher() {
 	char alphabet [NO_ALPHABETS][MAX_LETTERS];
 	const char *cipher_title = "\n\nEncrypt Cipher \n\n";
 	char *alphaFileDestination = "alphabet.txt";
+	char *encryptedFile = "encrypted.txt";
 	FILE *f_alphabet = fopen(alphaFileDestination, "r");
+	FILE *f_encryptedContents = fopen(encryptedFile, "w+");
 	char userInput [MAX_LETTERS]; 
-	char encryptedInput [MAX_LETTERS];
+	//char encryptedInput [MAX_LETTERS];
+	char encryptedLetter;
 
 	printf("%s", cipher_title);
 
@@ -146,95 +149,101 @@ int encrypt_cipher() {
 
 		switch(letter) {
 			case 'a':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;
 			case 'b':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;
 			case 'c':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;
 			case 'd':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;		
 			case 'e':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'f':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;
 			case 'g':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'h':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'i':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'j':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'k':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'l':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'm':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'n':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'o':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'p':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'q':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'r':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 's':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 't':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'u':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'v':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'w':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'x':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			case 'y':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;
 			case 'z':
-				encryptedInput[i] = alphabet[j][k];
+				encryptedLetter = alphabet[j][k];
 				break;	
 			default: 
 				break;
 		}
-
-		// output encrypted contents
-		printf("%c", encryptedInput[i]);
+		
+		// write contents to .txt file
+		fprintf(f_encryptedContents, "%c", encryptedLetter);
 		i++; 
 		j++;
 		k++;
 	}
-
+	
+	printf("%s", "\n");
+	printf("%s", "-----------------------");
 	printf("%s", "\n\n");
+	printf("%s", "Encryption succcessful!");
+	printf("%s", "\n\n");
+
+	fclose(f_encryptedContents);
 		
 	return 0;
 }
