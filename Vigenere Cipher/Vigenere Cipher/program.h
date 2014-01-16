@@ -17,7 +17,7 @@
 
 #ifndef PROGRAM_MENU_CHOICE
 #define PROGRAM_MENU_CHOICE
-	void program_menu_choice(int);
+	void program_menu_choice();
 #endif;
 
 #ifndef ENCRYPT_CIPHER

@@ -23,10 +23,7 @@ int execute_program() {
 
 	program_title();
 	program_menu();
-
-	scanf("%d", &option);
-	
-	program_menu_choice(option);
+	program_menu_choice();
 
 	return 0;
 }
@@ -34,7 +31,11 @@ int execute_program() {
 /*
 *	Parses the user's menu choice
 */
-void program_menu_choice(int option) {
+void program_menu_choice() {
+	int option = 0;
+		
+	scanf("%d", &option);
+
 	if(option == ENCRYPT) {
 		encrypt_cipher();
 	}
@@ -51,8 +52,8 @@ void program_menu_choice(int option) {
 
 		program_menu();
 		scanf("%d", &option);
-		program_menu_choice(option);
-	}		
+		program_menu_choice();
+	}
 }
 
 /*
@@ -244,6 +245,10 @@ int encrypt_cipher() {
 	printf("%s", "\n\n");
 
 	fclose(f_encryptedContents);
+
+	// re-display the menu
+	program_menu();
+	program_menu_choice();
 		
 	return 0;
 }
