@@ -134,7 +134,7 @@ int encrypt_cipher() {
 	i = 0;
 	j = 0; // alphabet no.
 	k = 0; // alphabet letters
-	
+		
 	// encrypt the user input
 	while(i != strlen(userInput)) {
 		letter = userInput[i];	
@@ -257,12 +257,18 @@ int encrypt_cipher() {
 */
 int decrypt_cipher() {	
 	int c;
+	int size = 0;
+	char decryptedLetter;
+	char encryptedLetter;
 	char alphabet [NO_ALPHABETS][MAX_LETTERS];
 	char encryptedContents[MAX_LETTERS];
 	char *alphaFileDestination = "alphabet.txt";
 	char *encryptedFile = "encrypted.txt";
 	char *decryptedFile = "decrypted.txt";	
 	int i, j, k = 0;
+
+	int len;
+
 
 	FILE *f_alphabet = fopen(alphaFileDestination, "r");
 	FILE *f_encryptedContents = fopen(encryptedFile, "r");
@@ -283,16 +289,142 @@ int decrypt_cipher() {
 	fclose(f_alphabet);
 
 	i = 0;
+	j = 0;
+	k = 0;
 
 	// now read the encrypted.txt file
 	if(f_encryptedContents != NULL) {
-		printf("\nEncrypted Contents: ");
+		//printf("\nEncrypted Contents: ");
+
+		fseek(f_encryptedContents, 0, SEEK_END); // seek to end of file
+		size = ftell(f_encryptedContents); // get current file pointer
+		fseek(f_encryptedContents, 0, SEEK_SET); // seek back to beginning of file
+
+		
+		printf("\n");
+		printf("Size: ");
+		printf("%i", size);
+		printf("\n");
 		
 		while(!feof(f_encryptedContents)) {
-			encryptedContents[i] = fgetc(f_encryptedContents);
-			printf("%c", encryptedContents[i]);
-			i++;
+			if(i != size) {
+				encryptedLetter = fgetc(f_encryptedContents);
+					
+				printf("\n");
+				printf("%c", encryptedLetter);
+				printf(" [i] ");
+				printf("%i", i);
+				printf(", ");
+			
+				// reset the counters
+				if(j == NO_ALPHABETS) {
+					j = 0;
+				}
+				else if(k == MAX_LETTERS) {
+					k = 0;
+				}
+
+				switch(encryptedLetter) {
+					case 'a':
+						decryptedLetter = alphabet[j][k];
+						break;
+					case 'b':
+						decryptedLetter = alphabet[j][k];
+						break;
+					case 'c':
+						decryptedLetter = alphabet[j][k];
+						break;
+					case 'd':
+						decryptedLetter = alphabet[j][k];
+						break;		
+					case 'e':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'f':
+						decryptedLetter = alphabet[j][k];
+						break;
+					case 'g':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'h':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'i':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'j':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'k':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'l':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'm':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'n':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'o':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'p':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'q':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'r':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 's':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 't':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'u':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'v':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'w':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'x':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					case 'y':
+						decryptedLetter = alphabet[j][k];
+						break;
+					case 'z':
+						decryptedLetter = alphabet[j][k];
+						break;	
+					default: 
+						break;
+				}
+				
+				// write contents to .txt file
+				fprintf(f_decryptedContents, "%c", decryptedLetter);
+
+				i++;
+				j++;
+				k++;
+			}
+			else {
+				break;
+			}			
+
+			//printf("%s", "Decrypted Letter: ");
+			//printf("%c", decryptedLetter);
+			
 		}
+
+		fclose(f_decryptedContents);
+
 		printf("\n\n");
 	}
 	else {
@@ -304,11 +436,128 @@ int decrypt_cipher() {
 		return 0;
 	}
 
+	/*
 	i = 0;
 	j = 0; // alphabet no.
 	k = 0; // alphabet letters
+	*/
 
 
+	//printf("%c", decryptedLetter);
+			
+	
+	
+
+			
+	// now, let's decrypt the cipher!
+	/*
+	while(i != strlen(encryptedContents)) {
+		letter = encryptedContents[i];	
+
+		// reset the counters
+		if(j == NO_ALPHABETS) {
+			j = 0;
+		}
+		else if(k == MAX_LETTERS) {
+			k = 0;
+		}
+
+		switch(letter) {
+			case 'a':
+				decryptedLetter = alphabet[j][k];
+				break;
+			case 'b':
+				decryptedLetter = alphabet[j][k];
+				break;
+			case 'c':
+				decryptedLetter = alphabet[j][k];
+				break;
+			case 'd':
+				decryptedLetter = alphabet[j][k];
+				break;		
+			case 'e':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'f':
+				decryptedLetter = alphabet[j][k];
+				break;
+			case 'g':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'h':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'i':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'j':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'k':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'l':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'm':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'n':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'o':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'p':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'q':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'r':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 's':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 't':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'u':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'v':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'w':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'x':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			case 'y':
+				decryptedLetter = alphabet[j][k];
+				break;
+			case 'z':
+				decryptedLetter = alphabet[j][k];
+				break;	
+			default: 
+				break;
+		}
+		
+
+		printf("%c", decryptedLetter);
+		
+		// write contents to .txt file
+		fprintf(f_decryptedContents, "%c", decryptedLetter);
+		i++; 
+		j++;
+		k++;
+		
+		*/
+	//}
+
+	//fclose(f_decryptedContents);
 
 	return 0;
 }
