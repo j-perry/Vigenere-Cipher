@@ -255,7 +255,59 @@ int encrypt_cipher() {
 /*
 *	Decrypts the cipher text
 */
-int decrypt_cipher() {
+int decrypt_cipher() {	
+	int c;
+	char alphabet [NO_ALPHABETS][MAX_LETTERS];
+	char encryptedContents[MAX_LETTERS];
+	char *alphaFileDestination = "alphabet.txt";
+	char *encryptedFile = "encrypted.txt";
+	char *decryptedFile = "decrypted.txt";	
+	int i, j, k = 0;
+
+	FILE *f_alphabet = fopen(alphaFileDestination, "r");
+	FILE *f_encryptedContents = fopen(encryptedFile, "r");
+	FILE *f_decryptedContents = fopen(decryptedFile, "w+");
+
+	if(f_alphabet != NULL) {
+		// read and store the alphabet text file
+		for(i = 0; i < NO_ALPHABETS; i++) {
+			for(j = 0; j < MAX_LETTERS; j++) {
+				alphabet[i][j] = fgetc(f_alphabet);
+			}
+		}
+	}
+	else {
+		perror("Unabled to open alphabet.txt");
+	}
+
+	fclose(f_alphabet);
+
+	i = 0;
+
+	// now read the encrypted.txt file
+	if(f_encryptedContents != NULL) {
+		printf("\nEncrypted Contents: ");
+		
+		while(!feof(f_encryptedContents)) {
+			encryptedContents[i] = fgetc(f_encryptedContents);
+			printf("%c", encryptedContents[i]);
+			i++;
+		}
+		printf("\n\n");
+	}
+	else {
+		printf("%s", "\nCan't open 'encrypted.txt'.\nYou haven't yet encrypted any contents!\n\n");
+
+		// re-display the menu
+		program_menu();
+		program_menu_choice();
+		return 0;
+	}
+
+	i = 0;
+	j = 0; // alphabet no.
+	k = 0; // alphabet letters
+
 
 
 	return 0;
