@@ -4,7 +4,7 @@
 
 #include "program.h"
 
-#define NO_ALPHABETS 4
+#define NO_ALPHABETS 5
 #define MAX_LETTERS 27
 
 const char *NEW_LINE = "\n";
@@ -98,7 +98,7 @@ int encrypt_cipher() {
 	int i, j, k;
 	char letter;
 	char alphabet [NO_ALPHABETS][MAX_LETTERS];
-	const char *cipher_title = "\n\nEncrypt Cipher \n\n";
+	const char *cipher_title = "\n-------------------\n\nEncrypt Cipher";
 	char *alphaFileDestination = "alphabet.txt";
 	char *encryptedFile = "encrypted.txt";
 	FILE *f_alphabet = fopen(alphaFileDestination, "r");
@@ -114,7 +114,6 @@ int encrypt_cipher() {
 		for(i = 0; i < NO_ALPHABETS; i++) {
 			for(j = 0; j < MAX_LETTERS; j++) {
 				alphabet[i][j] = fgetc(f_alphabet);
-				printf("%c", alphabet[i][j]);
 			}
 		}
 	}
@@ -257,6 +256,8 @@ int encrypt_cipher() {
 *	Decrypts the cipher text
 */
 int decrypt_cipher() {
+
+
 	return 0;
 }
 
