@@ -130,6 +130,8 @@ int encrypt_cipher() {
 	printf("%s", "You entered: ");
 	printf("%s", userInput);
 	printf("%s", "\n\n");
+	
+	printf("%s", "Decrypted Letter: ");
 
 	i = 0;
 	j = 0; // alphabet no.
@@ -143,98 +145,122 @@ int encrypt_cipher() {
 		if(j == NO_ALPHABETS) {
 			j = 0;
 		}
+
 		
 		switch(letter) {
 			case 'a':
-				encryptedLetter = alphabet[j][0];
+				fputc(alphabet[j][0], f_encryptedContents);
+				printf("%c", alphabet[j][0]);
 				break;
 			case 'b':
-				encryptedLetter = alphabet[j][1];
+				fputc(alphabet[j][1], f_encryptedContents);
+				printf("%c", alphabet[j][1]);
 				break;
 			case 'c':
-				encryptedLetter = alphabet[j][2];
+				fputc(alphabet[j][2], f_encryptedContents);
+				printf("%c", alphabet[j][2]);
 				break;
 			case 'd':
-				encryptedLetter = alphabet[j][3];
+				fputc(alphabet[j][3], f_encryptedContents);
+				printf("%c", alphabet[j][3]);
 				break;		
 			case 'e':
-				encryptedLetter = alphabet[j][4];
+				fputc(alphabet[j][4], f_encryptedContents);
+				printf("%c", alphabet[j][4]);
 				break;	
 			case 'f':
-				encryptedLetter = alphabet[j][5];
+				fputc(alphabet[j][5], f_encryptedContents);
+				printf("%c", alphabet[j][5]);
 				break;
 			case 'g':
-				encryptedLetter = alphabet[j][6];
+				fputc(alphabet[j][6], f_encryptedContents);
+				printf("%c", alphabet[j][6]);
 				break;	
 			case 'h':
-				encryptedLetter = alphabet[j][7];
+				fputc(alphabet[j][7], f_encryptedContents);
+				printf("%c", alphabet[j][7]);
 				break;	
 			case 'i':
-				encryptedLetter = alphabet[j][8];
+				fputc(alphabet[j][8], f_encryptedContents);
+				printf("%c", alphabet[j][8]);
 				break;	
 			case 'j':
-				encryptedLetter = alphabet[j][9];
+				fputc(alphabet[j][9], f_encryptedContents);
+				printf("%c", alphabet[j][9]);
 				break;	
 			case 'k':
-				encryptedLetter = alphabet[j][10];
+				fputc(alphabet[j][10], f_encryptedContents);
+				printf("%c", alphabet[j][10]);
 				break;	
 			case 'l':
-				encryptedLetter = alphabet[j][11];
+				fputc(alphabet[j][11], f_encryptedContents);
+				printf("%c", alphabet[j][11]);
 				break;	
 			case 'm':
-				encryptedLetter = alphabet[j][12];
+				fputc(alphabet[j][12], f_encryptedContents);
+				printf("%c", alphabet[j][12]);
 				break;	
 			case 'n':
-				encryptedLetter = alphabet[j][13];
+				fputc(alphabet[j][13], f_encryptedContents);
+				printf("%c", alphabet[j][13]);
 				break;	
 			case 'o':
-				encryptedLetter = alphabet[j][14];
+				fputc(alphabet[j][14], f_encryptedContents);
+				printf("%c", alphabet[j][14]);
 				break;	
 			case 'p':
-				encryptedLetter = alphabet[j][15];
+				fputc(alphabet[j][15], f_encryptedContents);
+				printf("%c", alphabet[j][15]);
 				break;	
 			case 'q':
-				encryptedLetter = alphabet[j][16];
+				fputc(alphabet[j][16], f_encryptedContents);
+				printf("%c", alphabet[j][16]);
 				break;	
 			case 'r':
-				encryptedLetter = alphabet[j][17];
+				fputc(alphabet[j][17], f_encryptedContents);
+				printf("%c", alphabet[j][17]);
 				break;	
 			case 's':
-				encryptedLetter = alphabet[j][18];
+				fputc(alphabet[j][18], f_encryptedContents);
+				printf("%c", alphabet[j][18]);
 				break;	
 			case 't':
-				encryptedLetter = alphabet[j][19];
+				fputc(alphabet[j][19], f_encryptedContents);
+				printf("%c", alphabet[j][19]);
 				break;	
 			case 'u':
-				encryptedLetter = alphabet[j][20];
+				fputc(alphabet[j][20], f_encryptedContents);
+				printf("%c", alphabet[j][20]);
 				break;	
 			case 'v':
-				encryptedLetter = alphabet[j][21];
+				fputc(alphabet[j][21], f_encryptedContents);
+				printf("%c", alphabet[j][21]);
 				break;	
 			case 'w':
-				encryptedLetter = alphabet[j][22];
+				fputc(alphabet[j][22], f_encryptedContents);
+				printf("%c", alphabet[j][22]);
 				break;	
 			case 'x':
-				encryptedLetter = alphabet[j][23];
+				fputc(alphabet[j][23], f_encryptedContents);
+				printf("%c", alphabet[j][23]);
 				break;	
 			case 'y':
-				encryptedLetter = alphabet[j][24];
+				fputc(alphabet[j][24], f_encryptedContents);
+				printf("%c", alphabet[j][24]);
 				break;
 			case 'z':
-				encryptedLetter = alphabet[j][25];
-				break;	
+				fputc(alphabet[j][25], f_encryptedContents);
+				printf("%c", alphabet[j][25]);
+				break;
 			default: 
 				break;
 		}
 		
-		// write contents to .txt file
-		fprintf(f_encryptedContents, "%c", encryptedLetter);
 		i++; 
 		j++;
-		k++;
 	}
 	
-	printf("%s", "\n");
+	printf("%s", "\n\n");
 	printf("%s", "-----------------------");
 	printf("%s", "\n\n");
 	printf("%s", "Encryption succcessful!");
@@ -284,7 +310,6 @@ int decrypt_cipher() {
 
 	i = 0;
 	j = 0;
-	//k = 0;
 
 	// now read the encrypted.txt file
 	if(f_encryptedContents != NULL) {
@@ -293,22 +318,16 @@ int decrypt_cipher() {
 		size = ftell(f_encryptedContents); // get current file pointer
 		fseek(f_encryptedContents, 0, SEEK_SET); // seek back to the beginning of file
 				
-		printf("\n");
-		printf("Size: ");
-		printf("%i", size);
-		printf("\n");
+		//printf("\n");
+		//printf("Size: ");
+		//printf("%i", size);
+		//printf("\n");
 		
 		while(!feof(f_encryptedContents)) {
 			// prevents the last index from being written twice
 			if(i != size) {
 				encryptedLetter = fgetc(f_encryptedContents);
-					
-				printf("\n");
-				printf("%c", encryptedLetter);
-				printf(" [i] ");
-				printf("%i", i);
-				printf(", ");
-			
+								
 				// reset the counters
 				if(j == NO_ALPHABETS) {
 					j = 0;
@@ -316,95 +335,87 @@ int decrypt_cipher() {
 				
 				switch(encryptedLetter) {
 					case 'a':
-						decryptedLetter = alphabet[j][0];
+						fputc(alphabet[j][0], f_decryptedContents);
 						break;
 					case 'b':
-						decryptedLetter = alphabet[j][1];
+						fputc(alphabet[j][1], f_decryptedContents);
 						break;
 					case 'c':
-						decryptedLetter = alphabet[j][2];
+						fputc(alphabet[j][2], f_decryptedContents);
 						break;
 					case 'd':
-						decryptedLetter = alphabet[j][3];
+						fputc(alphabet[j][3], f_decryptedContents);
 						break;		
 					case 'e':
-						decryptedLetter = alphabet[j][4];
+						fputc(alphabet[j][4], f_decryptedContents);
 						break;	
 					case 'f':
-						decryptedLetter = alphabet[j][5];
+						fputc(alphabet[j][5], f_decryptedContents);
 						break;
 					case 'g':
-						decryptedLetter = alphabet[j][6];
+						fputc(alphabet[j][6], f_decryptedContents);
 						break;	
 					case 'h':
-						decryptedLetter = alphabet[j][7];
+						fputc(alphabet[j][7], f_decryptedContents);
 						break;	
 					case 'i':
-						decryptedLetter = alphabet[j][8];
+						fputc(alphabet[j][8], f_decryptedContents);
 						break;	
 					case 'j':
-						decryptedLetter = alphabet[j][9];
+						fputc(alphabet[j][9], f_decryptedContents);
 						break;	
 					case 'k':
-						decryptedLetter = alphabet[j][10];
+						fputc(alphabet[j][10], f_decryptedContents);
 						break;	
 					case 'l':
-						decryptedLetter = alphabet[j][11];
+						fputc(alphabet[j][11], f_decryptedContents);
 						break;	
 					case 'm':
-						decryptedLetter = alphabet[j][12];
+						fputc(alphabet[j][12], f_decryptedContents);
 						break;	
 					case 'n':
-						decryptedLetter = alphabet[j][13];
+						fputc(alphabet[j][13], f_decryptedContents);
 						break;	
 					case 'o':
-						decryptedLetter = alphabet[j][14];
+						fputc(alphabet[j][14], f_decryptedContents);
 						break;	
 					case 'p':
-						decryptedLetter = alphabet[j][15];
+						fputc(alphabet[j][15], f_decryptedContents);
 						break;	
 					case 'q':
-						decryptedLetter = alphabet[j][16];
+						fputc(alphabet[j][16], f_decryptedContents);
 						break;	
 					case 'r':
-						decryptedLetter = alphabet[j][17];
+						fputc(alphabet[j][17], f_decryptedContents);
 						break;	
 					case 's':
-						decryptedLetter = alphabet[j][18];
+						fputc(alphabet[j][18], f_decryptedContents);
 						break;	
 					case 't':
-						decryptedLetter = alphabet[j][19];
+						fputc(alphabet[j][19], f_decryptedContents);
 						break;	
 					case 'u':
-						decryptedLetter = alphabet[j][20];
+						fputc(alphabet[j][20], f_decryptedContents);
 						break;	
 					case 'v':
-						decryptedLetter = alphabet[j][21];
+						fputc(alphabet[j][21], f_decryptedContents);
 						break;	
 					case 'w':
-						decryptedLetter = alphabet[j][22];
+						fputc(alphabet[j][22], f_decryptedContents);
 						break;	
 					case 'x':
-						decryptedLetter = alphabet[j][23];
+						fputc(alphabet[j][23], f_decryptedContents);
 						break;	
 					case 'y':
-						decryptedLetter = alphabet[j][24];
+						fputc(alphabet[j][24], f_decryptedContents);
 						break;
 					case 'z':
-						decryptedLetter = alphabet[j][25];
-						break;	
+						fputc(alphabet[j][25], f_decryptedContents);
+						break;
 					default: 
 						break;
 				}
-
-				
-				printf("\n");
-				printf("Decrypted Letter: ");
-				printf("%c", decryptedLetter);
-				
-				// write contents to .txt file
-				fprintf(f_decryptedContents, "%c", decryptedLetter);
-
+												
 				i++;
 				j++;
 			}
@@ -415,7 +426,11 @@ int decrypt_cipher() {
 
 		fclose(f_decryptedContents);
 		
-		printf("\n\n");
+		printf("%s", "\n");
+		printf("%s", "-----------------------");
+		printf("%s", "\n\n");
+		printf("%s", "Decryption succcessful!");
+		printf("%s", "\n\n");
 
 		// re-display the menu
 		program_menu();
