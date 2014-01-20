@@ -51,7 +51,6 @@ void program_menu_choice() {
 		printf("%s", "\n\n");
 
 		program_menu();
-		scanf("%d", &option);
 		program_menu_choice();
 	}
 }
@@ -104,7 +103,6 @@ int encrypt_cipher() {
 	FILE *f_alphabet = fopen(alphaFileDestination, "r");
 	FILE *f_encryptedContents = fopen(encryptedFile, "w+");
 	char userInput [MAX_LETTERS]; 
-	//char encryptedInput [MAX_LETTERS];
 	char encryptedLetter;
 
 	printf("%s", cipher_title);
@@ -145,8 +143,7 @@ int encrypt_cipher() {
 		if(j == NO_ALPHABETS) {
 			j = 0;
 		}
-
-		
+				
 		switch(letter) {
 			case 'a':
 				fputc(alphabet[j][0], f_encryptedContents);
@@ -452,5 +449,7 @@ int decrypt_cipher() {
 *	Terminates the program
 */
 void terminate_program() {
+	printf("\n");
+	printf("The program will now terminate. ");
 	exit(0);
 }
