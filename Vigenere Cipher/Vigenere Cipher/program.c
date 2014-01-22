@@ -101,7 +101,6 @@ int encrypt_cipher() {
 	FILE *f_alphabet = fopen(alphaFileDestination, "r");
 	FILE *f_encryptedContents = fopen(encryptedFile, "w+");
 	char userInput [MAX_LETTERS]; 
-	char encryptedLetter;
 
 	printf("%s", cipher_title);
 
