@@ -19,8 +19,6 @@ enum MenuOptions {
 *	Executes the main body of our program
 */
 int execute_program() {
-	int option = 0;
-
 	program_title();
 	program_menu();
 	program_menu_choice();
@@ -94,7 +92,7 @@ void program_menu() {
 *	Encrypts an inputted cipher against an alphabet text file
 */
 int encrypt_cipher() {
-	int i, j, k;
+	int i, j;
 	char letter;
 	char alphabet [NO_ALPHABETS][MAX_LETTERS];
 	const char *cipher_title = "\n-------------------\n\nEncrypt Cipher";
@@ -133,7 +131,6 @@ int encrypt_cipher() {
 
 	i = 0;
 	j = 0; // alphabet no.
-	k = 0; // alphabet letters
 		
 	// encrypt the user input
 	while(i != strlen(userInput)) {
@@ -276,7 +273,6 @@ int encrypt_cipher() {
 *	Decrypts the cipher text
 */
 int decrypt_cipher() {	
-	int c;
 	int size = 0;
 	char decryptedLetter;
 	char encryptedLetter;
@@ -285,7 +281,7 @@ int decrypt_cipher() {
 	char *alphaFileDestination = "alternative_alphabet.txt";
 	char *encryptedFile = "encrypted.txt";
 	char *decryptedFile = "decrypted.txt";
-	int i, j, k = 0;
+	int i, j = 0;
 	
 	FILE *f_alphabet = fopen(alphaFileDestination, "r");
 	FILE *f_encryptedContents = fopen(encryptedFile, "r");
@@ -315,11 +311,6 @@ int decrypt_cipher() {
 		size = ftell(f_encryptedContents); // get current file pointer
 		fseek(f_encryptedContents, 0, SEEK_SET); // seek back to the beginning of file
 				
-		//printf("\n");
-		//printf("Size: ");
-		//printf("%i", size);
-		//printf("\n");
-		
 		while(!feof(f_encryptedContents)) {
 			// prevents the last index from being written twice
 			if(i != size) {
